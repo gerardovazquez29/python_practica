@@ -32,20 +32,52 @@ def num_primo(num):
         if num % i == 0:
             return False
     return True
-print(num_primo(7))
+print(num_primo(7)) # True
 
-# 4-Crea una función que reciba una lista de números y devuelva la suma de los pares.
+# 4-Crea una función que reciba una lista de números y devuelva la suma de los 
+# pares.
+#list_numeros = [1,2,3,4,5,6,7,8,9]
+def sum_num_pares(numeros):
+        suma = 0
+        for num in numeros:
+            if num % 2 == 0:
+                suma += num
+        return suma
+lista = [1,2,3,4,5,6,7,8,9]
+print(sum_num_pares(lista)) # 20
 
+def suma_pares(numeros):
+    return sum(num for num in numeros if num % 2 == 0)
+
+lista = [9,8,7,4,5,6,3,2,4,5,6,9,8,7]
+print(suma_pares(lista)) # 38   
 
 # 5-Haz una función que reciba un texto y devuelva cuántas vocales tiene.
-
-
-# 6-Implementa una calculadora con funciones para sumar, restar, multiplicar y dividir.
-
-
-# 7-Usa *args para hacer una función que calcule el promedio de cualquier 
+def texto_vocal(texto):
+    vocales = "a,e,i,o,u,A,E,I,O,U,"
+    contador = 0
+    for letras in texto:
+        if letras in vocales:
+            contador += 1
+    return contador
+print(texto_vocal("FUNCION")) # 3
+        
+# 6-Usa *args para hacer una función que calcule el promedio de cualquier 
 # cantidad de números.
+def prom_num(*args):
+    return  sum(args) / len(args)
+print(prom_num(2,3,5,6,8,9)) # 5.5
 
 
-# 8-Usa **kwargs para crear una función que muestre la información de una persona 
+# 7-Usa **kwargs para crear una función que muestre la información de una persona 
 # (nombre, edad, ciudad, etc.).
+def info_person(**kwargs):
+    for clave,valor in kwargs.items():
+        print(f"{clave} = {valor}")
+info_person(nombre='Ana', edad=22, ciudad='Guadalajara')
+
+""" 
+nombre = Ana
+edad = 22
+ciudad = Guadalajara 
+"""
